@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #444;
+    text-align: center;
+}
+
+.table-vendas {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table-vendas thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-vendas th,
+.table-vendas td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+}
+
+.table-vendas tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-vendas tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table-vendas tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.table-vendas tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    background-color: #009879;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #007f67;
+}

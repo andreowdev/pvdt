@@ -9,12 +9,12 @@ export default function Home() {
             <div className="home">
                 <h1>Bem vindo ao sistema PVD</h1>
                 <div className="table-container">
-                    <div className="title">TABELA DE PRODUTOS</div>
+                    <div className="title">PRODUTOS DISPONIVEIS</div>
                     <Table />
                 </div>
-                <div className="other-content">
-                    {/* Adicione aqui outros conteúdos que você deseja */}
-                    <p>Outros conteúdos aqui...</p>
+                <div className="">
+                    <button>CADASTRO DE PRODUTOS</button>
+                    <button>VENDER</button>
                 </div>
             </div>
         </div>
