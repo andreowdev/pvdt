@@ -4,8 +4,6 @@ export default function Table() {
 
     const produtos = JSON.parse(localStorage.getItem("produtos"))
 
-    const nome = produtos[0].nome;
-
 
     console.log(produtos)
     return(
@@ -13,6 +11,7 @@ export default function Table() {
             <table>
                 <thead>
                     <tr>
+                        <th>Status</th>
                         <th>Nome do Produto</th>
                         <th>Data de Entrada</th>
                         <th>Referência</th>
@@ -25,8 +24,8 @@ export default function Table() {
                             <td>{produto.status == 1 ? "Ativo" : "Desativado"}</td>
                             <td>{produto.nome}</td>
                             <td>{produto.dataEntrada}</td>
+                            <td>{produto.referencia}</td>
                             <td>{produto.valorMensalidade}</td>
-                            <td></td>
                         </tr>
                     ))}
                 </tbody>

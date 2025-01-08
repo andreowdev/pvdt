@@ -38,7 +38,7 @@ export default function Cadastro() {
   return (
     <div className="flex ">
       <div className="">
-        <h1 className="">Cadastro de Clientes</h1>
+        <h1 className="">Cadastro de Produtos</h1>
         <form onSubmit={handleSubmit} className="">
           <div className="">
             <label className="">Nome do Produto</label>
