@@ -5,7 +5,7 @@ import TableVendas from './tableVendas';
 export default function Vendas() {
     const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
     const [produtoSelecionado, setProdutoSelecionado] = useState('');
-    const [valorTotal, setValorTotal] = useState(0);
+    const [setValorTotal] = useState(0);
     const [carrinho, setCarrinho] = useState([]);
     const [vendas, setVendas] = useState(JSON.parse(localStorage.getItem('vendas')) || []);
 
@@ -13,7 +13,7 @@ export default function Vendas() {
         const produtoNome = event.target.value;
         setProdutoSelecionado(produtoNome);
         const produto = produtos.find(p => p.nome === produtoNome);
-        setValorTotal(produto ? parseFloat(produto.valorMensalidade) : 0);
+        setValorTotal(produto ? parseFloat(produto.valor) : 0);
     };
 
     const handleAdicionarAoCarrinho = () => {
@@ -24,7 +24,21 @@ export default function Vendas() {
     };
 
     const calcularValorTotal = () => {
-        return carrinho.reduce((total, produto) => total + parseFloat(produto.valorMensalidade), 0);
+        return carrinho.reduce((total, produto) => total + parseFloat(produto.valor), 0);
+    };
+
+    const atualizarEstoque = () => {
+        const produtosAtualizados = produtos.map(produto => {
+            const produtoNoCarrinho = carrinho.find(p => p.nome === produto.nome);
+            if (produtoNoCarrinho) {
+                return {
+                    ...produto,
+                    quantidade: produto.quantidade - 1 
+                };
+            }
+            return produto;
+        });
+        localStorage.setItem('produtos', JSON.stringify(produtosAtualizados));
     };
 
     const handleFinalizarVenda = () => {
@@ -37,11 +51,8 @@ export default function Vendas() {
         const vendasAtualizadas = [...vendasAnteriores, novaVenda];
         localStorage.setItem('vendas', JSON.stringify(vendasAtualizadas));
         setVendas(vendasAtualizadas);
-
-        alert(`Venda finalizada! Valor total: R$ ${calcularValorTotal().toFixed(2)}`);
-        setCarrinho([]);
-        setProdutoSelecionado('');
-        setValorTotal(0);
+        atualizarEstoque(); // Atualiza o estoque após finalizar a venda
+        setCarrinho([]); // Limpa o carrinho após finalizar a venda
     };
 
     return (
@@ -67,7 +78,7 @@ export default function Vendas() {
                     <h2>Carrinho de Compras</h2>
                     <ul>
                         {carrinho.map((produto, index) => (
-                            <li key={index}>{produto.nome} - R$ {parseFloat(produto.valorMensalidade).toFixed(2)}</li>
+                            <li key={index}>{produto.nome} - R$ {parseFloat(produto.valor).toFixed(2)}</li>
                         ))}
                     </ul>
                     <p>Valor Total: R$ {calcularValorTotal().toFixed(2)}</p>

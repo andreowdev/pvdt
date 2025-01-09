@@ -40,7 +40,7 @@ TableVendas.propTypes = {
                 PropTypes.shape({
                     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
                     nome: PropTypes.string.isRequired,
-                    valorMensalidade: PropTypes.string.isRequired,
+                    valor: PropTypes.string.isRequired,
                 })
             ).isRequired,
             valorTotal: PropTypes.number.isRequired,

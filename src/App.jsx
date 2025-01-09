@@ -1,8 +1,8 @@
-import Vendas from "./components/vendas"
+import Home from "./components/home"
 
 function App() {
   return (
-    <Vendas /> 
+    <Home />
   )
 }
 
